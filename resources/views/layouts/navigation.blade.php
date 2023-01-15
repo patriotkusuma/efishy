@@ -25,6 +25,11 @@
                             {{ __('Tools') }}
                         </x-nav-link>
                     @endif
+                    @if(Route::has('message.list'))
+                        <x-nav-link :href="route('message.list')" :active="request()->routeIs('message.*')">
+                            {{ __('Message') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -92,6 +97,16 @@
 
                 {{ __('Setting') }}
             </x-responsive-nav-link>
+            @if(Route::has('tools.list'))
+                <x-responsive-nav-link :href="route('tools.list')" :active="request()->routeIs('tools.*')">
+                    {{ __('Tools') }}
+                </x-responsive-nav-link>
+            @endif
+            @if(Route::has('message.list'))
+                <x-responsive-nav-link :href="route('message.list')" :active="request()->routeIs('message.*')">
+                    {{ __('Message') }}
+                </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->

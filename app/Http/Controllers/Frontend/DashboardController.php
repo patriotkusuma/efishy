@@ -16,13 +16,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $mqtt = MQTT::connection('mosquitto-test');
-//        MQTT::publish('some/topic', 'Hello World!');
-        $mqtt->subscribe('some/topic',function(String $topic, String $message){
-            echo sprintf('Received QoS level 1 message on topic [%s]: %s', $topic, $message);
-        }, 1);
-//        $mqtt->loop(true);
-//        return view('dashboard');
+
+        return view('dashboard');
 
     }
 

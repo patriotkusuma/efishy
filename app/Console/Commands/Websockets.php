@@ -15,7 +15,7 @@ class Websockets extends Command
      *
      * @var string
      */
-    protected $signature = 'websockets:serve';
+    protected $signature = 'mqtt:listen';
 
     /**
      * The console command description.
@@ -28,7 +28,7 @@ class Websockets extends Command
     public function __construct()
     {
         parent::__construct();
-        $this->mqtt = MQTT::connection('private');
+        $this->mqtt = MQTT::connection('local');
     }
 
     /**
@@ -56,8 +56,9 @@ class Websockets extends Command
                 echo("\n topic not found");
             }
             echo($message);
-        },0);
+        },2);
         $this->mqtt->loop(true);
+        $this->mqtt->disconnect();
         /*$process = new Process(['pkill', '-f', 'mqtt-demo-process-node']);
         $process->start();
 

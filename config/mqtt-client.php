@@ -133,6 +133,23 @@ return [
                 ],
             ],
         ],
+        'local' => [
+            'host'  => 'mqtt.efishy.my.id',
+            'port'  => 8883,
+            'connection_settings' => [
+                'tls' => [
+                    'enabled' => true,
+                    'allow_self_signed_certificate' => env('MQTT_TLS_ALLOW_SELF_SIGNED_CERT', false),
+                    'verify_peer' => env('MQTT_TLS_VERIFY_PEER', true),
+                    'verify_peer_name' => env('MQTT_TLS_VERIFY_PEER_NAME', true),
+                    'ca_file' => env('MQTT_TLS_CA_FILE'),
+                    'ca_path' => env('MQTT_TLS_CA_PATH'),
+                    'client_certificate_file' => env('MQTT_TLS_CLIENT_CERT_FILE'),
+                    'client_certificate_key_file' => env('MQTT_TLS_CLIENT_CERT_KEY_FILE'),
+                    'client_certificate_key_passphrase' => env('MQTT_TLS_CLIENT_CERT_KEY_PASSPHRASE'),
+                ],
+            ],
+        ],
         'mosquitto-test' => [
             'host'  => 'test.mosquitto.org',
             'port'  => 1883,

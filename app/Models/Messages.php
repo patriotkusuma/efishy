@@ -12,4 +12,8 @@ class Messages extends Model
     protected $table = 'messages';
     protected $primaryKey = 'id';
     protected $guarded = ['id'];
+
+    protected function tool(){
+        return $this->hasOne(Tools::class,'id','tool_id');
+    }
 }

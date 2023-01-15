@@ -30,6 +30,17 @@ Route::get('/', function () {
 
 Route::get('/dashboard',[DashboardController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
+/*Clear Cache*/
+Route::get('/clear-cache',function(){
+    try{
+        $clear = \Illuminate\Support\Facades\Artisan::call('optimize:clear');
+        dd($clear);
+    }catch(\Exception $ex){
+        dd($ex);
+    }
+});
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -41,6 +52,10 @@ Route::middleware('auth')->group(function () {
 
     Route::name('tools.')->prefix('tools')->group(function () {
         Route::get('/', [ToolsController::class, 'index'])->name('list');
+    });
+
+    Route::name('message.')->prefix('message')->group(function(){
+        Route::get('/',[MessagesController::class,'index'])->name('list');
     });
 });
 
