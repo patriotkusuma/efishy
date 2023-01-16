@@ -57,6 +57,28 @@ Route::middleware('auth')->group(function () {
     Route::name('message.')->prefix('message')->group(function(){
         Route::get('/',[MessagesController::class,'index'])->name('list');
     });
+
+    Route::name('food.')->prefix('food')->group(function(){
+        Route::get('/',[\App\Http\Controllers\Frontend\FoodController::class,'index'])->name('list');
+        Route::match(['get','post'],'/add',[\App\Http\Controllers\Frontend\FoodController::class,'create'])->name('add');
+        Route::match(['get','post'],'/{id}/edit',[\App\Http\Controllers\Frontend\FoodController::class,'edit'])->name('edit');
+
+        Route::resource('in',\App\Http\Controllers\Frontend\FoodInController::class);
+        Route::resource('out',\App\Http\Controllers\Frontend\FoodOutController::class);
+//        Route::name('in.')->prefix('food-in')->group(function(){
+//
+////            Route::get('/',[\App\Http\Controllers\Frontend\FoodInController::class,'index'])->name('list');
+////            Route::match(['get','post'],'/add',[\App\Http\Controllers\Frontend\FoodInController::class,'create'])->name('add');
+////            Route::match(['get','post'],'/{id}/edit',[\App\Http\Controllers\Frontend\FoodInController::class,'edit'])->name('edit');
+//        });
+//        Route::name('out.')->prefix('food-out')->group(function(){
+//            Route::get('/',[\App\Http\Controllers\Frontend\FoodOutController::class,'index'])->name('list');
+//            Route::match(['get','post'],'/add',[\App\Http\Controllers\Frontend\FoodOutController::class,'create'])->name('add');
+//            Route::match(['get','post'],'/{id}/edit',[\App\Http\Controllers\Frontend\FoodOutController::class,'edit'])->name('edit');
+//        });
+    });
+
+
 });
 
 require __DIR__ . '/auth.php';

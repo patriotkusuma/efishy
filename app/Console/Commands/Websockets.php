@@ -45,6 +45,12 @@ class Websockets extends Command
         $this->mqtt->subscribe('#',function(String $topic, String $message){
             $messageTxt = json_decode($message);
             $tool = Tools::where('topic', $topic)->first();
+            if($tool->type == 'switch' || $tool->type =='sensor'){
+                $tool->value = $messageTxt->msg;
+                $tool->update();
+
+                echo("\n Switch Tool Saved database");
+            }
             if($tool!= null){
                 $msg = new Messages();
                 $msg->tool_id = $tool->id;

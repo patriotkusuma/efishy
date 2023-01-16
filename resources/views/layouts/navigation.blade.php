@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+{{--                    <a href="{{ route('dashboard') }}">--}}
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800"/>
                     </a>
                 </div>
@@ -30,6 +30,29 @@
                             {{ __('Message') }}
                         </x-nav-link>
                     @endif
+                    @if(Route::has('food.list'))
+{{--                        <div class="sm:flex sm:items-center">--}}
+                        <x-dropdown-nav-link align="right" :active="request()->routeIs('food.*')">
+                            <x-slot name="trigger">
+                                Food
+                            </x-slot>
+                            <x-slot name="content">
+                                <x-dropdown-link :href="route('food.list')">
+                                    {{ __('Food') }}
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('food.in.index')">
+                                    {{ __('Food In') }}
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('food.out.index')">
+                                    {{ __('Food Out') }}
+                                </x-dropdown-link>
+                            </x-slot>
+                        </x-dropdown-nav-link>
+{{--                        </div>--}}
+
+                    @endif
+
+
                 </div>
             </div>
 
@@ -107,6 +130,17 @@
                     {{ __('Message') }}
                 </x-responsive-nav-link>
             @endif
+            <x-responsive-dropdown-nav-link :href="'#'" :active="request()->routeIs('food.*')">
+                <x-slot name="trigger">Food</x-slot>
+                <x-slot name="content">
+                    <a href="{{route('food.list')}}">Food</a>
+                    <span class="separator"></span>
+                    <a href="{{route('food.in.index')}}">Food In</a>
+                    <a href="{{route('food.out.index')}}">Food Out</a>
+                    <span class="separator"></span>
+                    <a href="#">Cartografia</a>
+                </x-slot>
+            </x-responsive-dropdown-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

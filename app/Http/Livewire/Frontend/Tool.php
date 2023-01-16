@@ -29,7 +29,7 @@ class Tool extends Component
     protected $rules = [
         'name' => 'required',
         'topic' => 'required',
-        'type'  => "required|in:subscribe,publish",
+        'type'  => "required|in:text,switch,range,multi,sensor",
         'qos'   => "required|in:0,1,2",
         'status'    => "required|in:active,inactive",
     ];

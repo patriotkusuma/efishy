@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('topic');
-            $table->enum('type',['subscribe','publish']);
+            $table->enum('type',['text','switch','range','multi','sensor']);
             $table->enum('qos',['0','1','2'])->default('0');
+            $table->string('value')->nullable();
             $table->enum('status',['active','inactive'])->default('active');
             $table->timestamps();
         });

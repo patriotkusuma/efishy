@@ -138,6 +138,7 @@
                     <th scope="col" class="px-6 py-3">Topic</th>
                     <th scope="col" class="px-6 py-3">Type</th>
                     <th scope="col" class="px-6 py-3">QoS</th>
+                    <th scope="col" class="px-6 py-3">Value</th>
                     <th scope="col" class="px-6 py-3">Status</th>
                     <th scope="col" class="px-6 py-3">
                         <span class="sr-only">Action</span>
@@ -160,6 +161,7 @@
                             <td class="px-6 py-4">{{$data->topic}}</td>
                             <td class="px-6 py-4">{{$data->type}}</td>
                             <td class="px-6 py-4">{{$data->qos}}</td>
+                            <td class="px-6 py-4">{{$data->value}}</td>
                             <td class="px-6 py-4">
                                 @switch($data->status)
                                     @case('active')
@@ -188,7 +190,7 @@
                     @endforeach
                 @else
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <td scope="row" colspan="7"
+                        <td scope="row" colspan="8"
                             class="px-6 py-4 font-medium text-gray-900 text-center whitespace-nowrap dark:text-white">
                             Data tidak ditemukan
                         </td>
@@ -264,8 +266,11 @@
                             <select id="type" wire:ignore.self wire:model="type"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Pilih Type</option>
-                                <option value="subscribe">Subscribe</option>
-                                <option value="publish">Publish</option>
+                                <option value="text">Text</option>
+                                <option value="switch">Switch</option>
+                                <option value="range">Range</option>
+                                <option value="multi">Multi Choice</option>
+                                <option value="sensor">Sensor</option>
                             </select>
                             @error('type')
                             <p class="mt-2 text-sm text-green-600 dark:text-green-500">
