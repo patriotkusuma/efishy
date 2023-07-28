@@ -1,0 +1,47 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build && vite build --ssr"
+    },
+    "devDependencies": {
+        "@faker-js/faker": "^8.0.2",
+        "@headlessui/react": "^1.4.2",
+        "@inertiajs/react": "^1.0.0",
+        "@tailwindcss/forms": "^0.5.3",
+        "@vitejs/plugin-react": "^3.0.0",
+        "autoprefixer": "^10.4.12",
+        "axios": "^1.1.2",
+        "laravel-vite-plugin": "^0.7.5",
+        "postcss": "^8.4.18",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "tailwindcss": "^3.2.1",
+        "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.11.1",
+        "@emotion/styled": "^11.11.0",
+        "@mui/icons-material": "^5.14.0",
+        "@mui/material": "^5.14.0",
+        "@mui/styled-engine-sc": "^5.12.0",
+        "@mui/x-date-pickers": "^6.8.0",
+        "apexcharts": "^3.41.0",
+        "change-case": "^4.1.2",
+        "chart.js": "^4.3.0",
+        "date-fns": "^2.30.0",
+        "dayjs": "^1.11.8",
+        "flowbite": "^1.7.0",
+        "flowbite-react": "^0.4.10",
+        "moment": "^2.29.4",
+        "mqtt": "^4.3.7",
+        "mqtt-vue-hook": "^1.2.19",
+        "react-apexcharts": "^1.4.0",
+        "react-chartjs-2": "^5.2.0",
+        "react-icons": "^4.9.0",
+        "react-scroll": "^1.8.9",
+        "simplebar-react": "^3.2.4",
+        "styled-components": "^5.3.11"
+    }
+}
